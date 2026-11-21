@@ -10,7 +10,7 @@ This file lists what this version changes relative to filo_helicam. It was
 written by comparing the files with filo_helicam 1.0.1, so treat it as a
 summary rather than a complete changelog.
 
-Last updated: 2026-11-15
+Last updated: 2026-11-21
 
 ## Summary
 
@@ -55,6 +55,9 @@ Last updated: 2026-11-15
 - The manual spotlight can be used from any seat in the camera. The forward
   searchlight and the tracking spotlight stay with the pilot.
 - Brightness and radius are clamped on the server (1 to 10 and 4 to 10).
+- Brightness and radius both apply to the manual and the tracking beam. The
+  tracking beam used to be drawn at a fixed width whatever the radius was set
+  to.
 - The server switches a spotlight off when whoever turned it on leaves the
   helicopter or the server.
 - New events, all from client to server unless noted:
@@ -78,6 +81,9 @@ Last updated: 2026-11-15
   the lock no longer strips the flag from it.
 - The locked vehicle can be released with the lock-on key from any seat
   outside the camera.
+- The lock survives leaving and re-entering the camera. Going back in points
+  the camera at the vehicle again instead of coming back free, as long as the
+  vehicle still exists and is within 700 m.
 
 ### Configuration and keys
 

@@ -408,7 +408,17 @@ local function startHelicamLoop(heli)
     PopScaleformMovieFunctionVoid()
 
     helicamState.cam = cam
-    helicamState.locked_on_vehicle = nil
+
+    -- Re-entering the camera: pick the lock back up if the target is still around and in range.
+    -- target_vehicle outlives the camera (the overlay and the tracking spotlight use it), so the
+    -- lock has to be restored here or the camera comes back free while the target is still held.
+    if target_vehicle and DoesEntityExist(target_vehicle)
+        and #(GetEntityCoords(heli) - GetEntityCoords(target_vehicle)) <= maxtargetdistance then
+        helicamState.locked_on_vehicle = target_vehicle
+        PointCamAtEntity(cam, target_vehicle, 0.0, 0.0, 0.0, true)
+    else
+        helicamState.locked_on_vehicle = nil
+    end
 
     while helicam and not IsEntityDead(lPed) and GetVehiclePedIsIn(lPed) == heli and GetEntityHeightAboveGround(heli) >= 1.5 do
         -- Sync cam reference in case an onPressed callback swapped it (e.g. lock-off rebuilds cam)
@@ -837,7 +847,7 @@ local function drawBeam(netID, beam, now)
     direction = direction / length
 
     DrawSpotLight(origin.x, origin.y, origin.z, direction.x, direction.y, direction.z,
-        255, 255, 255, length + 20.0, 10.0, beam.brightness, 4.0, 1.0, 0.0)
+        255, 255, 255, length + 20.0, 10.0, beam.brightness, beam.radius, 1.0, 0.0)
 end
 
 local function startBeamThread()

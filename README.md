@@ -49,13 +49,13 @@ framework needed.
 
 Everything is in `config.lua`.
 
-| Setting                            | What it controls                                                        |
-| ---------------------------------- | ----------------------------------------------------------------------- |
-| `Config.HeliModels`                | Helicopter models the camera works in                                   |
-| `Config.HUD.DefaultDepartmentName` | Department name on the flight display                                   |
-| `Config.HUD.DepartmentNames`       | Department name per model and livery                                    |
-| `Config.DisableEventsWhileHelicam` | Local events triggered when the camera opens and closes, to hide a HUD  |
-| `Config.Keybinds`                  | Default keys                                                            |
+| Setting                            | What it controls                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------- |
+| `Config.HeliModels`                | Helicopter models the camera works in                                  |
+| `Config.HUD.DefaultDepartmentName` | Department name on the flight display                                  |
+| `Config.HUD.DepartmentNames`       | Department name per model and livery                                   |
+| `Config.DisableEventsWhileHelicam` | Local events triggered when the camera opens and closes, to hide a HUD |
+| `Config.Keybinds`                  | Default keys                                                           |
 
 Zoom limits, pan speed, lock-on range and the speed unit (`Km/h` or `MPH`)
 are at the top of `client.lua`. Beam range and update rate are at the top of
@@ -68,18 +68,18 @@ the server this was built on. Change or empty them for yours.
 
 Players can change these under Settings > Key Bindings > FiveM.
 
-| Key                | In the camera                       | Outside the camera                                              |
-| ------------------ | ----------------------------------- | --------------------------------------------------------------- |
-| `B`                | Close the camera                    | Open the camera                                                 |
-| Mouse              | Pan                                 |                                                                 |
-| Scroll wheel       | Zoom                                |                                                                 |
-| Right mouse button | Normal / night vision / thermal     |                                                                 |
-| `Space`            | Lock on to a vehicle / release      | Release the locked vehicle                                      |
-| `U`                | Manual spotlight on/off             | Pilot: forward searchlight, or tracking spotlight on/pause      |
-| `Up` / `Down`      | Spotlight brightness                | Spotlight brightness                                            |
-| `Right` / `Left`   | Manual spotlight radius             | Manual spotlight radius                                         |
-| `Q`                | Vehicle info: full / short / off    | Vehicle info: full / short / off                                |
-| `X`                |                                     | Rappel (rear seats)                                             |
+| Key                | In the camera                    | Outside the camera                                         |
+| ------------------ | -------------------------------- | ---------------------------------------------------------- |
+| `B`                | Close the camera                 | Open the camera                                            |
+| Mouse              | Pan                              |                                                            |
+| Scroll wheel       | Zoom                             |                                                            |
+| Right mouse button | Normal / night vision / thermal  |                                                            |
+| `Space`            | Lock on to a vehicle / release   | Release the locked vehicle                                 |
+| `U`                | Manual spotlight on/off          | Pilot: forward searchlight, or tracking spotlight on/pause |
+| `Up` / `Down`      | Spotlight brightness             | Spotlight brightness                                       |
+| `Right` / `Left`   | Manual spotlight radius          | Manual spotlight radius                                    |
+| `Q`                | Vehicle info: full / short / off | Vehicle info: full / short / off                           |
+| `X`                |                                  | Rappel (rear seats)                                        |
 
 With a vehicle locked, the pilot's `U` outside the camera turns the tracking
 spotlight on and then pauses and resumes it. Without one it switches the
@@ -100,12 +100,6 @@ Entity(heli).state.helicamSpotlight
 
 Events in `Config.DisableEventsWhileHelicam` are triggered on the client with
 `false` when the camera opens and `true` when it closes.
-
-## Limitations
-
-See `knownlimitation.txt`. The main ones: one spotlight per helicopter, only
-vehicles can be locked on to, and anyone sitting in a listed helicopter can
-use the camera (there is no job or permission check).
 
 ## Credits and licence
 
