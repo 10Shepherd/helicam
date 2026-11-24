@@ -88,7 +88,8 @@ Last updated: 2026-11-21
 ### Configuration and keys
 
 - `Config.HeliModels` moved to `config.lua` so the server can use it.
-  `as350` was added next to `polmav`.
+  The server fleet's three helicopters are listed: `polmav`, `sheriffmav`
+  and `hwaymav`.
 - Default keys: camera `E` to `B`, brightness `Y`/`Down` to `Up`/`Down`,
   radius `Caps Lock`/`Left Shift` to `Right`/`Left`.
 

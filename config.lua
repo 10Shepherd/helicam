@@ -1,9 +1,10 @@
 Config = {}
 
--- Helicopter models the camera works in
+-- Helicopter models the camera works in -- the fleet in resources/[emercars]
 Config.HeliModels = {
-    joaat("polmav"),
-    joaat("as350"),
+	joaat("polmav"),     -- LSPD Maverick ([FIRE]/sppolmav)
+	joaat("sheriffmav"), -- LSSD Maverick ([PD]/[john]/john_sapo)
+	joaat("hwaymav"),    -- SAHP Maverick ([PD]/[nacho]/nacho_sahp)
 }
 
 -- Text shown in the top corners of the screen while in the camera
@@ -11,13 +12,21 @@ Config.HUD = {
     -- Used when the model/livery isn't listed below
     DefaultDepartmentName = "LOS SANTOS POLICE DEPARTMENT",
 
-    -- Department name per model and livery index (0-based)
+    -- Department name per model and livery index. Each of the three helicopters above is a
+    -- single-department model with no liveries of its own, so GetVehicleLivery returns -1 for
+    -- them -- [0] is kept next to [-1] in case a livery is added to one later.
     DepartmentNames = {
-        [joaat("as350")] = {
-            [0] = "LOS ANGELES FIRE DEPARTMENT",
-            [1] = "CALIFORNIA HIGHWAY PATROL",
-            [2] = "LOS ANGELES POLICE DEPARTMENT",
-            [3] = "LOS ANGELES SHERIFF'S DEPARTMENT",
+        [joaat("polmav")] = {
+            [-1] = "LOS SANTOS POLICE DEPARTMENT",
+            [0] = "LOS SANTOS POLICE DEPARTMENT",
+        },
+        [joaat("sheriffmav")] = {
+            [-1] = "LOS SANTOS SHERIFF'S DEPARTMENT",
+            [0] = "LOS SANTOS SHERIFF'S DEPARTMENT",
+        },
+        [joaat("hwaymav")] = {
+            [-1] = "SAN ANDREAS HIGHWAY PATROL",
+            [0] = "SAN ANDREAS HIGHWAY PATROL",
         },
     },
 }
